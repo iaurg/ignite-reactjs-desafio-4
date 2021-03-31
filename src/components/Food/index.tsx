@@ -21,38 +21,20 @@ type FoodProps = {
 }
 
 const Food = ({ available, food, handleEditFood, handleDelete }: FoodProps) => {
-  /*
-  constructor(props) {
-    super(props);
-
-    const { available } = this.props.food;
-    this.state = {
-      isAvailable: available
-    };
-  }
-  */ 
   const [isAvailable, setIsAvailable] = useState(available)
 
-  const toggleAvailable = async () => {
-    //const { food } = this.props;
-    //const { isAvailable } = this.state;
-
+  const toggleAvailable = async () => {    
     await api.put(`/foods/${food.id}`, {
       ...food,
       available: !isAvailable,
     });
 
     setIsAvailable(!isAvailable)
-    // this.setState({ isAvailable: !isAvailable });
   }
 
   const setEditingFood = () => {
-    // const { food, handleEditFood } = this.props;
     handleEditFood(food);
-  }
-
-  // const { isAvailable } = this.state;
-  // const { food, handleDelete } = this.props;
+  }  
 
   return (
     <Container available={isAvailable}>

@@ -8,7 +8,6 @@ type HeaderProps = {
 }
 
 const Header = ({ openModal }: HeaderProps) => {
-  // const { openModal } = this.props;
   return (
     <Container>
       <header>
